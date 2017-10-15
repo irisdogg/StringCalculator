@@ -3,22 +3,18 @@ package is.ru.stringcalculator;
 public class Calculator {
 	
 	public static int add(String text){
-		if(isEmpty(text)) {
+		if(text.equals("")) {
 			return 0;
 		}
 		else{
-			if(text.contains(",")){
-				String numbers[] = text.split(",");
+			if(text.contains(",") || text.contains("\n")){
+				String numbers[] = text.split(",|\n");
 				return sum(numbers);
 			}
 			return 1;
 		}
 	}
-
-	private static boolean isEmpty (String text) {
-		return text.isEmpty();
-	}
-
+	
 
 	private static int toInt(String number){
 		return Integer.parseInt(number);
